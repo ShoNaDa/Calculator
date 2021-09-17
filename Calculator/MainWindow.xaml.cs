@@ -1,6 +1,7 @@
 using System;
 using System.Windows;
 using System.Data;
+using System.Windows.Controls;
 
 namespace Calculator
 {
@@ -10,6 +11,17 @@ namespace Calculator
     /// 
     public partial class MainWindow : Window
     {
+        //функция нажатия на знаки
+        public void Buttons_of_sings(object sender, RoutedEventArgs e)
+        {
+            Signs(Convert.ToString(((Button)sender).Content));
+
+        }
+        //функция нажатия на кнопки
+        public void Buttons_of_numbers(object sender, RoutedEventArgs e)
+        {
+            Numbers(Convert.ToString(((Button)sender).Content));
+        }
         //функция для предотвращения багов с цифрами
         string Numbers(string number)
         {
@@ -82,51 +94,6 @@ namespace Calculator
         {
             InitializeComponent();
         }
-        //нажата цифра 1
-        private void Click_to_one(object sender, RoutedEventArgs e)
-        {
-            Numbers("1");
-        }
-        //нажата цифра 2
-        private void Click_to_two(object sender, RoutedEventArgs e)
-        {
-            Numbers("2");
-        }
-        //нажата цифра 3
-        private void Click_to_three(object sender, RoutedEventArgs e)
-        {
-            Numbers("3");
-        }
-        //нажата цифра 4
-        private void Click_to_four(object sender, RoutedEventArgs e)
-        {
-            Numbers("4");
-        }
-        //нажата цифра 5
-        private void Click_to_five(object sender, RoutedEventArgs e)
-        {
-            Numbers("5");
-        }
-        //нажата цифра 6
-        private void Click_to_six(object sender, RoutedEventArgs e)
-        {
-            Numbers("6");
-        }
-        //нажата цифра 7
-        private void Click_to_seven(object sender, RoutedEventArgs e)
-        {
-            Numbers("7");
-        }
-        //нажата цифра 8
-        private void Click_to_eight(object sender, RoutedEventArgs e)
-        {
-            Numbers("8");
-        }
-        //нажата цифра 9
-        private void Click_to_nine(object sender, RoutedEventArgs e)
-        {
-            Numbers("9");
-        }
         //нажата цифра 0
         private void Click_to_zero(object sender, RoutedEventArgs e)
         {
@@ -155,26 +122,6 @@ namespace Calculator
             {
                 Reply_line.Text = Reply_line.Text.Replace(".", ",");
             }
-        }
-        //нажата кнопка минус
-        private void Click_to_minus(object sender, RoutedEventArgs e)
-        {
-            Signs("-");
-        }
-        //нажата кнопка плюс
-        private void Click_to_plus(object sender, RoutedEventArgs e)
-        {
-            Signs("+");
-        }
-        //нажата кнопка умножить
-        private void Click_to_multiply(object sender, RoutedEventArgs e)
-        {
-            Signs("*");
-        }
-        //нажата кнопка разделить
-        private void Click_to_divide(object sender, RoutedEventArgs e)
-        {
-            Signs("/");
         }
         //нажата кнопка равно
         private void Click_to_equal(object sender, RoutedEventArgs e)

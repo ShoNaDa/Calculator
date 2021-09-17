@@ -44,9 +44,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_one"
-                    ClickMode="Release">
-                1
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="1">
             </Button>
         </Border>
 
@@ -64,9 +64,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_two"
-                    ClickMode="Release">
-                2
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="2">
             </Button>
         </Border>
 
@@ -84,9 +84,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_three"
-                    ClickMode="Release">
-                3
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="3">
             </Button>
         </Border>
 
@@ -104,9 +104,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_four"
-                    ClickMode="Release">
-                4
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="4">
             </Button>
         </Border>
 
@@ -124,9 +124,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_five"
-                    ClickMode="Release">
-                5
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="5">
             </Button>
         </Border>
 
@@ -144,9 +144,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_six"
-                    ClickMode="Release">
-                6
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="6">
             </Button>
         </Border>
 
@@ -164,9 +164,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_seven"
-                    ClickMode="Release">
-                7
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="7">
             </Button>
         </Border>
 
@@ -184,9 +184,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_eight"
-                    ClickMode="Release">
-                8
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="8">
             </Button>
         </Border>
 
@@ -204,9 +204,9 @@
                     FontSize="48"
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
-                    Click="Click_to_nine"
-                    ClickMode="Release">
-                9
+                    Click="Buttons_of_numbers"
+                    ClickMode="Release"
+                    Content="9">
             </Button>
         </Border>
 
@@ -225,8 +225,8 @@
                     Background="#FFDDE8E8"
                     BorderBrush="#FFDDE8E8"
                     Click="Click_to_zero"
-                    ClickMode="Release">
-                0
+                    ClickMode="Release"
+                    Content="0">
             </Button>
         </Border>
 
@@ -244,9 +244,9 @@
                     FontSize="48"
                     Background="Gray"
                     BorderBrush="Gray"
-                    Click="Click_to_plus"
-                    ClickMode="Release">
-                +
+                    Click="Buttons_of_sings"
+                    ClickMode="Release"
+                    Content="+">
             </Button>
         </Border>
 
@@ -264,9 +264,9 @@
                     FontSize="48"
                     Background="Gray"
                     BorderBrush="Gray"
-                    Click="Click_to_minus"
-                    ClickMode="Release">
-                -
+                    Click="Buttons_of_sings"
+                    ClickMode="Release"
+                    Content="-">
             </Button>
         </Border>
 
@@ -284,9 +284,9 @@
                     FontSize="48"
                     Background="Gray"
                     BorderBrush="Gray"
-                    Click="Click_to_multiply"
-                    ClickMode="Release">
-                *
+                    Click="Buttons_of_sings"
+                    ClickMode="Release"
+                    Content="*">
             </Button>
         </Border>
 
@@ -304,9 +304,9 @@
                     FontSize="48"
                     Background="Gray"
                     BorderBrush="Gray"
-                    Click="Click_to_divide"
-                    ClickMode="Release">
-                /
+                    Click="Buttons_of_sings"
+                    ClickMode="Release"
+                    Content="/">
             </Button>
         </Border>
 
@@ -325,8 +325,8 @@
                     Background="Gray"
                     BorderBrush="Gray"
                     Click="Click_to_equal"
-                    ClickMode="Release">
-                =
+                    ClickMode="Release"
+                    Content="=">
             </Button>
         </Border>
 
