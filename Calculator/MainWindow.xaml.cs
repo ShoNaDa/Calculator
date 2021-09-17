@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Data;
 
@@ -7,9 +7,77 @@ namespace Calculator
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
+        //функция для предотвращения багов с цифрами
+        string Numbers(string number)
+        {
+            if (equation == "")
+            {
+                equation = number;
+                Reply_line.Text = equation;
+            }
+            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
+            {
+                equation = equation.Substring(0, equation.Length - 1);
+                equation += number;
+                Reply_line.Text = equation;
+            }
+            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
+            {
+                equation = equation.Substring(0, equation.Length - 1);
+                equation += number;
+                Reply_line.Text = equation;
+            }
+            else
+            {
+                equation += number;
+                Reply_line.Text = equation;
+            }
+            bool comma = Reply_line.Text.Contains(".");
+            if (comma == true)
+            {
+                Reply_line.Text = Reply_line.Text.Replace(".", ",");
+            }
+            return equation;
+        }
+        //функция для предотвращения багов со знаками
+        string Signs(string sing)
+        {
+            if (equation == "")
+            {
+                if (sing == "-")
+                {
+                    equation = sing;
+                    Reply_line.Text = equation;
+                }
+                else
+                {
+                    MessageBox.Show(Convert.ToString("Ошибка!"));
+                }
+            }
+            else if (equation[equation.Length - 1] == '/' || equation[equation.Length - 1] == '*' || equation[equation.Length - 1] == '+' || equation[equation.Length - 1] == '-')
+            {
+                equation = equation.Substring(0, equation.Length - 1);
+                equation += sing;
+                Reply_line.Text = equation;
+            }
+            else
+            {
+                equation += sing;
+                Reply_line.Text = equation;
+            }
+            bool comma = Reply_line.Text.Contains(".");
+            if (comma == true)
+            {
+                Reply_line.Text = Reply_line.Text.Replace(".", ",");
+            }
+            return equation;
+        }
+        //переменная, в которую заполняется выражение
         string equation = "";
+
         public MainWindow()
         {
             InitializeComponent();
@@ -17,236 +85,47 @@ namespace Calculator
         //нажата цифра 1
         private void Click_to_one(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "1";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "1";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "1";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "1";
-                Reply_line.Text = equation;
-            }
+            Numbers("1");
         }
         //нажата цифра 2
         private void Click_to_two(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "2";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "2";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "2";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "2";
-                Reply_line.Text = equation;
-            }
+            Numbers("2");
         }
         //нажата цифра 3
         private void Click_to_three(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "3";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "3";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "3";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "3";
-                Reply_line.Text = equation;
-            }
+            Numbers("3");
         }
         //нажата цифра 4
         private void Click_to_four(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "4";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "4";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "4";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "4";
-                Reply_line.Text = equation;
-            }
+            Numbers("4");
         }
         //нажата цифра 5
         private void Click_to_five(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "5";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "5";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "5";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "5";
-                Reply_line.Text = equation;
-            }
+            Numbers("5");
         }
         //нажата цифра 6
         private void Click_to_six(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "6";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "6";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "6";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "6";
-                Reply_line.Text = equation;
-            }
+            Numbers("6");
         }
         //нажата цифра 7
         private void Click_to_seven(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "7";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "7";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "7";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "7";
-                Reply_line.Text = equation;
-            }
+            Numbers("7");
         }
         //нажата цифра 8
         private void Click_to_eight(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "8";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "8";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "8";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "8";
-                Reply_line.Text = equation;
-            }
+            Numbers("8");
         }
         //нажата цифра 9
         private void Click_to_nine(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "9";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation.Length == 1)
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "9";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '0' && equation[equation.Length - 2] != '1' && equation[equation.Length - 2] != '2' && equation[equation.Length - 2] != '3' && equation[equation.Length - 2] != '4' && equation[equation.Length - 2] != '5' && equation[equation.Length - 2] != '6' && equation[equation.Length - 2] != '7' && equation[equation.Length - 2] != '8' && equation[equation.Length - 2] != '9' && equation[equation.Length - 2] != '0')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "9";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "9";
-                Reply_line.Text = equation;
-            }
+            Numbers("9");
         }
         //нажата цифра 0
         private void Click_to_zero(object sender, RoutedEventArgs e)
@@ -271,83 +150,31 @@ namespace Calculator
                 equation += "0";
                 Reply_line.Text = equation;
             }
+            bool comma = Reply_line.Text.Contains(".");
+            if (comma == true)
+            {
+                Reply_line.Text = Reply_line.Text.Replace(".", ",");
+            }
         }
         //нажата кнопка минус
         private void Click_to_minus(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                equation = "-";
-                Reply_line.Text = equation;
-            }
-            else if (equation[equation.Length - 1] == '/' || equation[equation.Length - 1] == '*' || equation[equation.Length - 1] == '+' || equation[equation.Length - 1] == '-')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "-";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "-";
-                Reply_line.Text = equation;
-            }
+            Signs("-");
         }
         //нажата кнопка плюс
         private void Click_to_plus(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                MessageBox.Show(Convert.ToString("Ошибка!"));
-            }
-            else if (equation[equation.Length - 1] == '/' || equation[equation.Length - 1] == '*' || equation[equation.Length - 1] == '+' || equation[equation.Length - 1] == '-')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "+";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "+";
-                Reply_line.Text = equation;
-            }
+            Signs("+");
         }
         //нажата кнопка умножить
         private void Click_to_multiply(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                MessageBox.Show(Convert.ToString("Ошибка!"));
-            }
-            else if (equation[equation.Length - 1] == '/' || equation[equation.Length - 1] == '*' || equation[equation.Length - 1] == '+' || equation[equation.Length - 1] == '-')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "*";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "*";
-                Reply_line.Text = equation;
-            }
+            Signs("*");
         }
         //нажата кнопка разделить
         private void Click_to_divide(object sender, RoutedEventArgs e)
         {
-            if (equation == "")
-            {
-                MessageBox.Show(Convert.ToString("Ошибка!"));
-            }
-            else if (equation[equation.Length - 1] == '/' || equation[equation.Length - 1] == '*' || equation[equation.Length - 1] == '+' || equation[equation.Length - 1] == '-')
-            {
-                equation = equation.Substring(0, equation.Length - 1);
-                equation += "/";
-                Reply_line.Text = equation;
-            }
-            else
-            {
-                equation += "/";
-                Reply_line.Text = equation;
-            }
+            Signs("/");
         }
         //нажата кнопка равно
         private void Click_to_equal(object sender, RoutedEventArgs e)
@@ -360,11 +187,15 @@ namespace Calculator
             {
                 try
                 {
-
                     //Ответ             
                     var result = new DataTable().Compute(equation, null);
                     equation = Convert.ToString(result);
                     Reply_line.Text = Convert.ToString(result);
+                    bool comma = equation.Contains(",");
+                    if(comma == true)
+                    {
+                        equation = equation.Replace(",", ".");
+                    }
                 }
                 catch (FormatException message)
                 {
